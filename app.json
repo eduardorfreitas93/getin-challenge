@@ -1,0 +1,12 @@
+{
+  "name": "getin-challenge",
+  "displayName": "getin-challenge",
+  "expo": {
+    "name": "getin-challenge",
+    "slug": "getin-challenge",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
