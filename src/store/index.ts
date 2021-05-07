@@ -5,7 +5,11 @@ import { reactotron } from '../config/ReactotronConfig';
 
 import rootReducer from './ducks/rootReducer';
 
-// export interface ApplicationState {}
+import { RestaurantsState } from './ducks/restaurant/types';
+
+export interface ApplicationState {
+  restaurants: RestaurantsState;
+}
 
 const middlewares = [applyMiddleware(thunk)];
 
@@ -15,6 +19,9 @@ if (__DEV__) {
   middlewares.push(reactotronMiddleware);
 }
 
-const store: Store = createStore(rootReducer, compose(...middlewares));
+const store: Store<ApplicationState> = createStore(
+  rootReducer,
+  compose(...middlewares),
+);
 
 export default store;
