@@ -10,7 +10,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "prepare": "husky install",
-    "release": "HUSKY_SKIP_HOOKS=1 ./node_modules/standard-version/bin/cli.js"
+    "release": "HUSKY_SKIP_HOOKS=1 ./node_modules/standard-version/bin/cli.js",
+    "bundle:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
+    "bundle:android": "react-native bundle --entry-file='index.js' --bundle-output='./android/app/src/main/assets/index.android.bundle' --assets-dest='android/app/src/main/res/' --dev=false --platform='android'"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.4",
