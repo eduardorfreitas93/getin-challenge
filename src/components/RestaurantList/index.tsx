@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, FlatList } from 'react-native';
 import { TitleList, ViewTitleList } from './styles';
-import RestaurantCart from '../RestaurantCart';
+import RestaurantCard from '../RestaurantCard';
 import { IRestaurant } from '../../store/ducks/restaurant/types';
 
 interface IRestaurantList {
@@ -22,20 +22,23 @@ export default function RestaurantList({
   return (
     <>
       <ViewTitleList>
-        <TitleList>{title}</TitleList>
+        <TitleList testID="title">{title}</TitleList>
       </ViewTitleList>
 
       <FlatList
         data={restaurants}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => <RestaurantCart key={item.id} data={item} />}
+        renderItem={({ item }) => <RestaurantCard key={item.id} data={item} />}
         showsVerticalScrollIndicator={false}
         numColumns={2}
         onEndReachedThreshold={0.1}
         onEndReached={({ distanceFromEnd }) => handelFetchMore(distanceFromEnd)}
         ListFooterComponent={
           loadingMore ? (
-            <ActivityIndicator color={colorActivityIndicator} />
+            <ActivityIndicator
+              color={colorActivityIndicator}
+              testID="activityIndicator"
+            />
           ) : (
             <></>
           )
@@ -45,6 +48,7 @@ export default function RestaurantList({
           offset: 177 * index,
           index,
         })}
+        testID="list"
       />
     </>
   );

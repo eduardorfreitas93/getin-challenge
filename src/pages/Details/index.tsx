@@ -56,7 +56,7 @@ export default function Details(): JSX.Element {
 
   if (!restaurant || loading) {
     return (
-      <ContentLoading>
+      <ContentLoading testID="viewLoading">
         <ActivityIndicator />
       </ContentLoading>
     );
@@ -70,47 +70,60 @@ export default function Details(): JSX.Element {
           borderRadius: 8,
           opacity: 0.5,
         }}
+        testID="imageBackground"
       >
-        <ButtonBack onPress={handleGoBack}>
+        <ButtonBack onPress={handleGoBack} testID="buttonBack">
           <Image source={iconWhite} />
         </ButtonBack>
       </HeaderImageBackground>
       <Header>
-        <ImageHeader source={{ uri: restaurant.logo }} />
+        <ImageHeader source={{ uri: restaurant.logo }} testID="logo" />
       </Header>
 
       <Content>
         <ViewTitle>
-          <Title>{restaurant.name}</Title>
+          <Title testID="name">{restaurant.name}</Title>
         </ViewTitle>
 
         <ScrollView style={{ flex: 1 }}>
           <ViewDescribe>
             <DescribeTextTitle>Descrição</DescribeTextTitle>
-            <DescribeTextInfo>{restaurant.description}</DescribeTextInfo>
+            <DescribeTextInfo testID="description">
+              {restaurant.description}
+            </DescribeTextInfo>
           </ViewDescribe>
 
           <ViewDescribe>
             <DescribeTextTitle>Contato</DescribeTextTitle>
-            <DescribeTextInfo>{restaurant.telephone}</DescribeTextInfo>
-            <DescribeTextInfo>{restaurant.website}</DescribeTextInfo>
+            <DescribeTextInfo testID="telephone">
+              {restaurant.telephone}
+            </DescribeTextInfo>
+            <DescribeTextInfo testID="website">
+              {restaurant.website}
+            </DescribeTextInfo>
           </ViewDescribe>
 
           <ViewDescribe>
             <DescribeTextTitle>Daixa de preço</DescribeTextTitle>
-            <DescribeTextInfo>{restaurant.price_range}</DescribeTextInfo>
+            <DescribeTextInfo testID="priceRange">
+              {restaurant.price_range}
+            </DescribeTextInfo>
           </ViewDescribe>
 
           <Spacing />
 
           <ViewDescribe>
             <DescribeTextTitle>Horário de funcionamento</DescribeTextTitle>
-            <DescribeTextInfo>{restaurant.opening_hours}</DescribeTextInfo>
+            <DescribeTextInfo testID="openingHours">
+              {restaurant.opening_hours}
+            </DescribeTextInfo>
           </ViewDescribe>
 
           <ViewDescribe>
             <DescribeTextTitle>Formas de pagamento</DescribeTextTitle>
-            <DescribeTextInfo>{restaurant.payment_methods}</DescribeTextInfo>
+            <DescribeTextInfo testID="paymentMethods">
+              {restaurant.payment_methods}
+            </DescribeTextInfo>
           </ViewDescribe>
         </ScrollView>
       </Content>

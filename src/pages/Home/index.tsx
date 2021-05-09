@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 
 import {
@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
 
       <ContentList>
         <ViewSearch>
-          <InputSearch onFocus={handleFocus} />
+          <InputSearch onFocus={handleFocus} testID="inputSearch" />
         </ViewSearch>
 
         <ContainerListView>

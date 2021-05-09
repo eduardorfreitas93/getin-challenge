@@ -11,6 +11,7 @@ export default function InputSearch({ ...rest }: TextInputProps): JSX.Element {
       <Input
         underlineColorAndroid="transparent"
         placeholder="Encontre um restaurante"
+        testID="input"
         {...rest}
       />
     </Container>

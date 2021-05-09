@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { ItemButton, Title, ImageBackground } from './styles';
 
-interface IRestaurantCart extends TouchableOpacityProps {
+interface IRestaurantCard extends TouchableOpacityProps {
   data: {
     id: string;
     name: string;
@@ -12,10 +12,10 @@ interface IRestaurantCart extends TouchableOpacityProps {
   };
 }
 
-export default function RestaurantCart({
+export default function RestaurantCard({
   data,
   ...rest
-}: IRestaurantCart): JSX.Element {
+}: IRestaurantCard): JSX.Element {
   const navigation = useNavigation();
 
   function handleGoDetailsRestaurant() {
@@ -23,7 +23,11 @@ export default function RestaurantCart({
   }
 
   return (
-    <ItemButton onPress={handleGoDetailsRestaurant} {...rest}>
+    <ItemButton
+      onPress={handleGoDetailsRestaurant}
+      testID="buttonItem"
+      {...rest}
+    >
       <ImageBackground
         source={{ uri: data.image }}
         resizeMode="cover"
@@ -31,8 +35,9 @@ export default function RestaurantCart({
           borderRadius: 8,
           opacity: 0.5,
         }}
+        testID="imageBackground"
       >
-        <Title>{data.name}</Title>
+        <Title testID="title">{data.name}</Title>
       </ImageBackground>
     </ItemButton>
   );

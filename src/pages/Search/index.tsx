@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 
 import {
@@ -58,7 +58,7 @@ export default function Search(): JSX.Element {
 
   return (
     <Container>
-      <ButtonBack onPress={handleGoBack}>
+      <ButtonBack onPress={handleGoBack} testID="buttonBack">
         <Image source={iconBack} />
       </ButtonBack>
       <Header>
@@ -68,10 +68,14 @@ export default function Search(): JSX.Element {
 
       <ContentList>
         <ViewSearch>
-          <InputSearch autoFocus onChangeText={handleSearch} />
+          <InputSearch
+            autoFocus
+            onChangeText={handleSearch}
+            testID="inputSearch"
+          />
         </ViewSearch>
 
-        <ContainerListView>
+        <ContainerListView testID="viewList">
           <RestaurantList
             title="Restaurantes"
             colorActivityIndicator={theme.colors.primary}
